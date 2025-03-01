@@ -43,7 +43,7 @@ runs:
           gpg --batch --symmetric --cipher-algo aes256 --digest-algo sha256 --passphrase ${{ inputs.passphrase }} -o .${{ inputs.statefile_location }}/terraform.tfstate.enc .${{ inputs.statefile_location }}/terraform.tfstate
         }
       shell: pwsh
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: ${{ inputs.download_upload == 'upload' }}
       with:
         name: terraform-state
